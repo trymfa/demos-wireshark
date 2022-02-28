@@ -1,14 +1,17 @@
 package main
 
 import "net"
+import "fmt"
 
 func handler(c net.Conn) {
-	c.Write([]byte("Økern"))
+	c.Write([]byte("Trym Falkum"))
 	c.Close()
 }
 
 func main() {
 	l, err := net.Listen("tcp", ":5000")
+	fmt.Println(l.Addr())
+
 	if err != nil {
 		panic(err)
 	}
